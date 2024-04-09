@@ -17,7 +17,7 @@ public class MainController {
 	@GetMapping("/")
 	public String index(Model model ) {
 		
-		String imagePath = "/images/images.png";
+		String imagePath = "/images/demo.png";
         model.addAttribute("imagePath", imagePath);
 
 		return "index";

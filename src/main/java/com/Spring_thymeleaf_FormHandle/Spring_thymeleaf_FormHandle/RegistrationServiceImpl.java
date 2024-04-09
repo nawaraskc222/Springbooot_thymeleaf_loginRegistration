@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 public class RegistrationServiceImpl implements RegistrationService{
 
 	
-	
-	
 	  @Autowired
 	  RegistrationRepository repo;
 	
