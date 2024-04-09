@@ -1,5 +1,6 @@
 package com.Spring_thymeleaf_FormHandle.Spring_thymeleaf_FormHandle;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 	
+		@Autowired 
+		RegistrationService service;
 	
 	@GetMapping("/")
 	public String index(Model model ) {
@@ -39,6 +42,8 @@ public class MainController {
 		System.out.println("Last Name: " + n2);
 		System.out.println("Email: " + n3);
 		System.out.println("Password: " + n4);
+		
+		service.save(registration);
 		
 		return "redirect:/";
 	}

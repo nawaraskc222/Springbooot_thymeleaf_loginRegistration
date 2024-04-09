@@ -38,18 +38,18 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form method="post" action="#" th:action="@{registerAction}">
+            <form method="post" action="#" th:action="@{registerAction}" th:object="${register}">
               <!-- 2 column grid layout with text inputs for the first and last names -->
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <input type="text" name="fname" id="form3Example1" class="form-control" />
+                    <input type="text" name="fname" id="form3Example1" class="form-control"  th:field="*{fname}" />
                     <label class="form-label" for="form3Example1">First name</label>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <input type="text" name="lname" id="form3Example2" class="form-control" />
+                    <input type="text" name="lname" id="form3Example2" class="form-control" th:field="*{lname}"  />
                     <label class="form-label" for="form3Example2">Last name</label>
                   </div>
                 </div>
@@ -57,13 +57,13 @@
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="text"  name="email" id="form3Example3" class="form-control" />
+                <input type="text"  name="email" id="form3Example3" class="form-control" th:field="*{email}"  />
                 <label class="form-label" for="form3Example3">Email address</label>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" name="password" id="form3Example4" class="form-control" />
+                <input type="password" name="password" id="form3Example4" class="form-control" th:field="*{password}"  />
                 <label class="form-label" for="form3Example4">Password</label>
               </div>
 
