@@ -8,5 +8,9 @@ public interface RegistrationService {
 	
 	void save(Registration registration);	
 	Registration getById(Integer id);
+	
+	Registration findByEmailAndPassword(String email, String password);
+    boolean isAdmin(String email, String password);
+
 
 }

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -21,6 +22,32 @@ public class MainController {
 
 		return "index";
 	}
+
+	@PostMapping("/homeAction")
+	public String homeAction(@RequestParam String email, @RequestParam String password, Model model) {
+		
+//        Registration registration = service.findByEmailAndPassword(email, password);
+
+        
+        
+        if (service.isAdmin(email, password)) {
+            // Redirect to admin page if admin
+            return "adminPage";
+        } else {
+            Registration registration = service.findByEmailAndPassword(email, password);
+            if (registration != null) {
+                // Redirect to home page if user is authenticated
+                return "home";
+            } else {
+                // Add error message to the model and return to login page
+                model.addAttribute("error", "Invalid email or password");
+                return "redirect:/";
+            }
+		
+	}
+	}
+	
+	
 	
 	@GetMapping("/register")
 	public String registerFun(Model model) {
@@ -49,8 +76,4 @@ public class MainController {
 	}
 
 	
-	@PostMapping("/homeAction")
-	public String homeAction() {
-		return "home";
-	}
 }

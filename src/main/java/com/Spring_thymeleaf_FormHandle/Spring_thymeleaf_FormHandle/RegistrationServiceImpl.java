@@ -25,4 +25,17 @@ public class RegistrationServiceImpl implements RegistrationService{
 		return repo.findById(id).get();
 	}
 
+	@Override
+	public Registration findByEmailAndPassword(String email, String password) {
+		// TODO Auto-generated method stub
+        return repo.findByEmailAndPassword(email, password);
+
+	}
+
+	@Override
+	public boolean isAdmin(String email, String password) {
+		// TODO Auto-generated method stub
+		return email.equals("admin") && password.equals("admin");
+	}
+
 }

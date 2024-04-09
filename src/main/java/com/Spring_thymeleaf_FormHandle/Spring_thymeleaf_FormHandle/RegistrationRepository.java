@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RegistrationRepository extends JpaRepository<Registration, Integer> {
+	
+	
+	Registration findByEmailAndPassword(String email, String password);
 
 }
